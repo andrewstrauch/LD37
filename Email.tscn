@@ -21,6 +21,6 @@ margin/bottom = 10.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = true
 bbcode/bbcode = "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ..."
-visible_characters = -1
+visible_characters = 41
 
 
