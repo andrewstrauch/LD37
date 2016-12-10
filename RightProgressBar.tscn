@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 1, 0, 0, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[node name="RightProgressBar" type="ProgressBar"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 451.0
+margin/top = 0.0
+margin/right = 801.0
+margin/bottom = 80.0
+custom_styles/fg = SubResource( 1 )
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 50.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = false
+
+
