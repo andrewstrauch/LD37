@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Newsroom.jpg" type="Texture" id=2]
+[ext_resource path="res://Laptop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Advisor.tscn" type="PackedScene" id=4]
 
 [node name="Root" type="Node2D"]
 
@@ -12,5 +14,15 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 426, 299.645 )
 transform/scale = Vector2( 1.95161, 1.95161 )
 texture = ExtResource( 2 )
+
+[node name="Laptop" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 410.3, 489.9 )
+
+[node name="Advisors" type="Node" parent="."]
+
+[node name="Advisor" parent="Advisors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 21, 272 )
 
 
