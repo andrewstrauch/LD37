@@ -73,6 +73,8 @@ func _input(event):
 			oi.pass_timer_time(get_burndown_timer_time_left())
 			oi.set_pos(Vector2(250,340))
 			
+			#Show advisors
+			c.emailsOpen = true
 			
 			#Kill email header on spawn
 			get_node("EmailSprite/BurndownTimer").stop()

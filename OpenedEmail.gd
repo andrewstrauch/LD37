@@ -37,4 +37,6 @@ func on_burndown_timer_timeout():
 func handle_email_close(button, headline):
 	c.readingAnEmail = false
 	#Set other values in controller for handling effects
+	c.emailsOpen = false
+		
 	queue_free()
