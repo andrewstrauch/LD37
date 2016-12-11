@@ -32,9 +32,9 @@ const COMPLETELY_FALSE_SPAM = [
 # moderate news is only ever completely true
 const COMPLETELY_TRUE_MODERATE = [
 	"It's safe to say that this one is true.",
-	"Passed the fact checkers with flying colors. Print it.",
+	"Passed the fact checkers with flying colors.  Go for it.",
 	"I can't imagine anyone would question this story.",
-	"Even the skeptics will take this story at face value."
+	"Even the skeptics won't be able to pick this one apart."
 ]
 
 # SUPER LEFT
@@ -185,47 +185,47 @@ const MODERATE_COMPLETELY_TRUE_RIGHT = [
 
 const RIGHT_COMPLETELY_FALSE_SPAM = COMPLETELY_FALSE_SPAM
 const RIGHT_COMPLETELY_FALSE_LEFT = [
-	""
+	"Yeah, sure, and Obama was the second coming of Jesus Christ himself. Not even libtards could be stupid enough to buy this story."
 ]
 const RIGHT_COMPLETELY_FALSE_MODERATE = COMPLETELY_TRUE_MODERATE
 const RIGHT_COMPLETELY_FALSE_RIGHT = [
-	""
+	"The liberal media is just too SCARED to run a story this juicy! Don't bother with fact checkers, PUSH IT!"
 ]
 
 const RIGHT_MOSTLY_FALSE_SPAM = COMPLETELY_FALSE_SPAM
 const RIGHT_MOSTLY_FALSE_LEFT = [
-	""
+	"They're only trying to push such a ridiculous story because they're threatened by a Trump presidency. Don't let them get away with it!"
 ]
 const RIGHT_MOSTLY_FALSE_MODERATE = COMPLETELY_TRUE_MODERATE
 const RIGHT_MOSTLY_FALSE_RIGHT = [
-	""
+	"I mean, yeah, it may sound outrageous, but I wouldn't put it past those dirty politician scumbags to stoop to that level!"
 ]
 
 const RIGHT_NEUTRAL_SPAM = COMPLETELY_FALSE_SPAM
 const RIGHT_NEUTRAL_LEFT = [
-	""
+	"Sure, some of it is technically true, but this is obviously just a distraction from the REAL issues!"
 ]
 const RIGHT_NEUTRAL_MODERATE = COMPLETELY_TRUE_MODERATE
 const RIGHT_NEUTRAL_RIGHT = [
-	""
+	"I can confirm that some of this is DEFINITELY real, and the part about Hillary's sex change probably could be too."
 ]
 
 const RIGHT_MOSTLY_TRUE_SPAM = COMPLETELY_FALSE_SPAM
 const RIGHT_MOSTLY_TRUE_LEFT = [
-	""
+	"Damn it, this makes us look REALLY bad. This is going to push us even closer to socialism."
 ]
 const RIGHT_MOSTLY_TRUE_MODERATE = COMPLETELY_TRUE_MODERATE
 const RIGHT_MOSTLY_TRUE_RIGHT = [
-	""
+	"Watch out, libtards, we're about to expose your socialist lies to the world!"
 ]
 
 const RIGHT_COMPLETELY_TRUE_SPAM = COMPLETELY_FALSE_SPAM
 const RIGHT_COMPLETELY_TRUE_LEFT = [
-	""
+	"My God, this is true? What else could the Dems be right about? What if Obama WAS born in the United States? What if I actually AM racist??"
 ]
 const RIGHT_COMPLETELY_TRUE_MODERATE = COMPLETELY_TRUE_MODERATE
 const RIGHT_COMPLETELY_TRUE_RIGHT = [
-	""
+	"The American people won't be able to cover their ears to the hideous truth anymore! Expose the corruption once and for all!"
 ]
 
 # SUPER RIGHT
