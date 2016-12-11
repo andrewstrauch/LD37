@@ -38,8 +38,8 @@ func _fixed_process(delta):
 
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && not hasBeenOpened):
-		if (c.get_reading_an_email() == false):
-			c.set_reading_an_email(true)
+		if (c.readingAnEmail == false):
+			c.readingAnEmail = true
 			#print(hasBeenOpened)
 			set_process_input(false)
 			hasBeenOpened = true
@@ -50,4 +50,5 @@ func _input(event):
 			#oi.hide()
 			#add_child(oi)
 			get_tree().get_root().add_child(oi)
-			oi.set_pos(get_pos() + Vector2(250,340))
+			oi.pass_timer_time(get_burndown_timer_time_left())
+			oi.set_pos(Vector2(250,340))
