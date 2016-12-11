@@ -66,8 +66,7 @@ func _spawn_bubbles(myName):
 	
 	var bubble = load("res://AdvisorSpeechBubble.tscn")
 	var bi = bubble.instance()
-	bi.set_name("Bubble"+str(bubbleNumber))
-	bubbleNumber += 1
+	bi.set_name("Bubble"+actualName)
 	print(bi.get_name())
 	bi.hide()
 	add_child(bi)
