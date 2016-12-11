@@ -24,7 +24,9 @@ func _ready():
 	c = get_node("/root/Controller")
 	
 	_burndown_timer = get_node("EmailSprite/BurndownTimer")
+	_burndown_timer.set_wait_time(_gamestate.EMAIL_BURNDOWN_TIMER_TIME)
 	_burndown_timer.connect("timeout", self, "_on_burndown_timer_timeout")
+	_burndown_timer.start()
 
 	self.connect("input_event", self, "_input_event")
 
@@ -48,6 +50,9 @@ func _fixed_process(delta):
 	_burndown_progress_bar.set_value(_burndown_timer.get_time_left() / _burndown_timer.get_wait_time())
 
 func _input_event(event):
+	if _gamestate.is_game_over:
+		return
+
 	if (event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && not hasBeenOpened):
 		if (c.readingAnEmail == false):
 			c.readingAnEmail = true

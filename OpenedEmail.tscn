@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://OpenedEmail.gd" type="Script" id=1]
+[ext_resource path="res://social-media-scores.png" type="Texture" id=2]
 
 [node name="OpenedEmail" type="Node2D"]
 
@@ -17,19 +18,22 @@ margin/top = 0.0
 margin/right = 350.0
 margin/bottom = 250.0
 
-[node name="HeadlineLabel" type="RichTextLabel" parent="Panel"]
+[node name="HeadlineLabel" type="Label" parent="Panel"]
 
-focus/ignore_mouse = false
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 70.0
-margin/top = 93.0
-margin/right = 270.0
-margin/bottom = 243.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 80.0
+margin/right = 340.0
+margin/bottom = 200.0
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="ApproveButton" type="Button" parent="Panel"]
 
@@ -38,12 +42,13 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
-margin/top = 6.0
-margin/right = 70.0
-margin/bottom = 26.0
+margin/top = 210.0
+margin/right = 230.0
+margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+text = "RUN THIS STORY"
 flat = false
 
 [node name="RejectButton" type="Button" parent="Panel"]
@@ -52,13 +57,14 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 99.0
-margin/top = 6.0
-margin/right = 159.0
-margin/bottom = 26.0
+margin/left = 240.0
+margin/top = 210.0
+margin/right = 340.0
+margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+text = "PASS"
 flat = false
 
 [node name="BurndownTimer" type="Timer" parent="Panel"]
@@ -67,5 +73,68 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="SocialMediaShares" type="Sprite" parent="Panel"]
+
+transform/pos = Vector2( 174.62, 40 )
+transform/scale = Vector2( 0.759879, 0.75 )
+texture = ExtResource( 2 )
+
+[node name="TwitterShares" type="Label" parent="Panel/SocialMediaShares"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -164.0
+margin/top = -40.0
+margin/right = -124.0
+margin/bottom = -20.0
+text = "0"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FacebookShares" type="Label" parent="Panel/SocialMediaShares"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -39.0
+margin/top = -40.0
+margin/right = 1.0
+margin/bottom = -20.0
+text = "0"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GoogleShares" type="Label" parent="Panel/SocialMediaShares"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 85.0
+margin/top = -40.0
+margin/right = 125.0
+margin/bottom = -20.0
+text = "0"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
