@@ -17,7 +17,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -30,7 +30,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -73,7 +73,7 @@ custom_styles/panel = SubResource( 1 )
 [node name="LeftProgressBar" parent="Left" instance=ExtResource( 1 )]
 
 margin/bottom = 120.0
-custom_styles/bg = SubResource( 3 )
+custom_styles/bg = SubResource( 2 )
 
 [node name="Right" type="Panel" parent="."]
 
@@ -85,7 +85,7 @@ margin/left = 450.0
 margin/top = 0.0
 margin/right = 800.0
 margin/bottom = 80.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="RightProgressBar" parent="Right" instance=ExtResource( 2 )]
 
