@@ -42,7 +42,7 @@ func _ready():
 		ai.set_pos(each.get_pos())
 		ai.set_name("Advisor" + str(advisorNum))
 		advisorNum += 1
-		#ai.hide()
+		ai.hide()
 		
 		#print(ai.get_name())
 		

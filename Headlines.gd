@@ -1280,8 +1280,8 @@ ALIGNMENT|TRUTHINESS|TITLE
 		var _headline_text = _headline[2]
 		_headlines.append({
 			'id': _num_headlines,
-			'alignment': _headline_alignment,
-			'truthiness': _headline_truthiness,
+			'alignment': int(_headline_alignment),
+			'truthiness': int(_headline_truthiness),
 			'text': _headline_text
 		})
 		_num_headlines += 1

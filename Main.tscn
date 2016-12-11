@@ -6,7 +6,7 @@
 [ext_resource path="res://AdvisorAnchor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://NewsTicker.tscn" type="PackedScene" id=5]
 
-[node name="Root" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
