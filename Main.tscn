@@ -52,7 +52,7 @@ transform/pos = Vector2( 760, 445 )
 [node name="ReceiveEmailTimer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 2.0
 one_shot = false
 autostart = true
 

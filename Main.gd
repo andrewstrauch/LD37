@@ -49,8 +49,13 @@ func _on_receive_email_timer_timeout():
 	_add_email()
 
 func _add_email():
-	get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").get_node("VBoxContainer").add_child(load("res://Email.tscn").instance())
-
+	var email = load("res://Email.tscn")
+	var ei = email.instance()
+	#ei.set_name("Bubble"+actualName)
+	#add_child(ei)
+	#ei.set_pos(get_pos() + offset)
+	#get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").get_node("VBoxContainer").add_child(load("res://Email.tscn").instance())
+	get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").get_node("VBoxContainer").add_child(ei)
 func _fixed_process(delta):
 	if(Input.is_key_pressed(KEY_ESCAPE)):
 		get_tree().quit()
