@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Newsroom.jpg" type="Texture" id=2]
 [ext_resource path="res://Laptop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://AdvisorAnchor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://NewsTicker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scoreboard.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node2D"]
 
@@ -55,6 +56,11 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="RichTextLabel" parent="." instance=ExtResource( 5 )]
+[node name="NewsTicker" parent="." instance=ExtResource( 5 )]
+
+margin/top = 90.0
+margin/bottom = 110.0
+
+[node name="Scoreboard" parent="." instance=ExtResource( 6 )]
 
 
