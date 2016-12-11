@@ -119,7 +119,6 @@ func on_detect_body_enter():
 func on_detect_body_exit():
 	var bubble = return_bubble()
 	get_node(bubble).hide()
-	print(bubble)
 	
 func set_hotkey(myHotkey):
 	hotkey = myHotkey
