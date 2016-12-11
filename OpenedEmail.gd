@@ -1,6 +1,6 @@
 extends Node
 
-var headlineName
+var openHeadline
 #Vars for headline values here?
 
 var c
@@ -14,6 +14,10 @@ func _ready():
 	get_node("Panel/RejectButton").connect("pressed", self, "on_reject_button_pressed")
 	c = get_node("/root/Controller")
 	get_node("Panel/BurndownTimer").connect("timeout", self, "on_burndown_timer_timeout")
+	get_node("Panel/HeadlineLabel").add_text(openHeadline.text)
+	
+func set_headline(headline):
+	openHeadline = headline
 
 func pass_timer_time(time):
 		get_node("Panel/BurndownTimer").set_wait_time(time)
