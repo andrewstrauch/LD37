@@ -27,13 +27,18 @@ func _ready():
 		advisorNum += 1
 		ai.hide()
 		
-		print(ai.get_name())
+		#print(ai.get_name())
 		
 		#Pass in instance shit here
 		#ai.init(isPlayerFacingRight)
 		
 		
 	#get_node("Advisors").get_node("Advisor1").show()
+	
+	var email = load("res://Email.tscn")
+	var ei = email.instance()
+	get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").add_child(ei)
+	add_child(ei)
 	
 	set_fixed_process(true)
 
