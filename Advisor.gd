@@ -47,8 +47,10 @@ func _fixed_process(delta):
 #		print(actualName)
 	
 	if (c.emailsOpen && readyToTalk):
-		readyToTalk = false
-		show()
+		#if (c.Advisor1 == true):
+		if (c.advisorList.has(actualName)):
+			readyToTalk = false
+			show()
 	
 	if (not c.emailsOpen && not readyToTalk):
 		readyToTalk = true

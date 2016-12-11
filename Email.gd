@@ -60,7 +60,18 @@ func _input_event(event):
 			oi.set_pos(Vector2(250,340))
 
 			#Show advisors
+			#Random
+			var unshuffledArray = ["Advisor1", "Advisor2", "Advisor3",
+			"Advisor4", "Advisor5", "Advisor6"]
+			var shuffledArray = []
+			for item in unshuffledArray:
+				var rand = randi()%2+1
+				if (rand == 2):
+					shuffledArray.push_back(item)
 			c.emailsOpen = true
-
+			c.advisorList= shuffledArray
+			c.Advisor1 = true
+			#print(c.advisorList)
+			
 			#Kill email header on spawn
 			_delete_email()
