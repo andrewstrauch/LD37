@@ -54,7 +54,6 @@ func handle_email_close(button):
 	c.readingAnEmail = false
 	#Set other values in controller for handling effects
 	c.emailsOpen = false
-	g.publish_headline(openHeadline)
 	c.advisorList.clear()
 
 	queue_free()
