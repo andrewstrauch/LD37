@@ -1,5 +1,7 @@
 extends Node
 
+var _gamestate
+
 var _burndown_timer
 var _burndown_progress_bar
 var _headlines
@@ -18,6 +20,8 @@ func _on_burndown_timer_timeout():
 	queue_free()
 
 func _ready():
+	_gamestate = get_node("/root/GameState")
+	
 	c = get_node("/root/Controller")
 	set_process_input(true)
 	_burndown_timer = get_node("EmailSprite").get_node("BurndownTimer")
@@ -38,6 +42,10 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
+	if _gamestate.is_game_over:
+		_burndown_timer.stop()
+		return
+
 	_burndown_progress_bar.set_value(_burndown_timer.get_time_left() / _burndown_timer.get_wait_time())
 
 #func _input(event):
