@@ -1,12 +1,24 @@
 extends Node
 
 var _headlines
+var _published_headlines
+
 func get_random_headline():
 	randomize()
 	var _random_headlines_array_index = randi() % _headlines.size()
 	var _new_headline = _headlines[_random_headlines_array_index]
 	_headlines.remove(_random_headlines_array_index)
 	return _new_headline
+
+func add_published_headline(headline):
+	_published_headlines.append(headline)
+
+func get_published_headline_text():
+	var _published_headlines_string = ""
+	for _published_headline in _published_headlines:
+		_published_headlines_string += " " + _published_headline.text + " ||"
+	return _published_headlines_string;
+	
 
 func _ready():
 	var RAW_HEADLINES = """
@@ -3076,6 +3088,7 @@ func _ready():
 """
 
 	_headlines = []
+	_published_headlines = []
 
 	for _raw_headline in RAW_HEADLINES.split("\n", false):
 		var _headline = _raw_headline.split("|")
