@@ -6,8 +6,13 @@ var headlineBurndownTime = 15
 var _gamestate
 var receive_email_timer
 
+var t
+
+
+
 func _ready():
 	_gamestate = get_node("/root/GameState")
+	t = get_node("/root/TalkingPoints")
 
 	receive_email_timer = get_node("ReceiveEmailTimer")
 	_set_receive_email_timer_wait_time()

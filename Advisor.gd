@@ -26,15 +26,44 @@ var advisorSixOffset = Vector2(leftMargin,0)
 
 var c
 
+var t
+
+var alignment
+
+var bi
+
 #Talking points
 
 func _ready():
 	c = get_node("/root/Controller")
+	t = get_node("/root/TalkingPoints")
+	
+	
 	get_node("Detect").connect("mouse_enter", self, "on_detect_body_enter")
 	get_node("Detect").connect("mouse_exit", self, "on_detect_body_exit")
 	
 	spawn_bubbles(actualName)
 	#print(actualName)
+	get_node("WolfBlitzer").hide()
+	get_node("JakeTapper").hide()
+	get_node("MegynKelly").hide()
+	get_node("KeithOlbermann").hide()
+	get_node("RachelMaddow").hide()
+	get_node("AlexJones").hide()
+	
+	if (actualName == "Advisor1"):
+		get_node("WolfBlitzer").show()
+		
+	if (actualName == "Advisor2"):
+		get_node("JakeTapper").show()
+	if (actualName == "Advisor3"):
+		get_node("MegynKelly").show()
+	if (actualName == "Advisor4"):
+		get_node("KeithOlbermann").show()
+	if (actualName == "Advisor5"):
+		get_node("RachelMaddow").show()
+	if (actualName == "Advisor6"):
+		get_node("AlexJones").show()
 	
 	set_fixed_process(true)
 
@@ -50,6 +79,7 @@ func _fixed_process(delta):
 		#if (c.Advisor1 == true):
 		if (c.advisorList.has(actualName)):
 			readyToTalk = false
+			bi.get_node("Panel/Label").set_text(t.get_talking_point(alignment, c.currentHeadline.truthiness, c.currentHeadline.alignment))
 			show()
 	
 	if (not c.emailsOpen && not readyToTalk):
@@ -100,23 +130,36 @@ func spawn_bubbles(myName):
 	var bubbleName
 	var offset = Vector2()
 	
+	get_node("WolfBlitzer").hide()
+	get_node("JakeTapper").hide()
+	get_node("MegynKelly").hide()
+	get_node("KeithOlbermann").hide()
+	get_node("RachelMaddow").hide()
+	get_node("AlexJones").hide()
+	
 	if (myName == "Advisor1"):
 		offset = advisorOneOffset
+		alignment = t.ADVISOR_ALIGNMENT.MODERATE
 	if (myName == "Advisor2"):
 		offset = advisorTwoOffset
+		alignment = t.ADVISOR_ALIGNMENT.MODERATE
 	if (myName == "Advisor3"):
 		offset = advisorThreeOffset
+		alignment = t.ADVISOR_ALIGNMENT.RIGHT
 	if (myName == "Advisor4"):
 		offset = advisorFourOffset
+		alignment = t.ADVISOR_ALIGNMENT.SUPER_LEFT
 	if (myName == "Advisor5"):
 		offset = advisorFiveOffset
+		alignment = t.ADVISOR_ALIGNMENT.LEFT
 	if (myName == "Advisor6"):
 		offset = advisorSixOffset
+		alignment = t.ADVISOR_ALIGNMENT.SUPER_RIGHT
 	
 	var bubble = load("res://AdvisorSpeechBubble.tscn")
-	var bi = bubble.instance()
+	bi = bubble.instance()
+	#Set the text
 	bi.set_name("Bubble"+actualName)
-	#print(bi.get_name())
 	bi.hide()
 	add_child(bi)
 	bi.set_pos(get_pos() + offset)

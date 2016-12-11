@@ -14,6 +14,8 @@ var Advisor6 = false
 
 var advisorList = []
 
+var currentHeadline
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here

@@ -69,8 +69,9 @@ func _input_event(event):
 				if (rand == 2):
 					shuffledArray.push_back(item)
 			c.emailsOpen = true
+			c.currentHeadline = _headline
 			c.advisorList= shuffledArray
-			c.Advisor1 = true
+			#c.Advisor1 = true
 			#print(c.advisorList)
 			
 			#Kill email header on spawn
