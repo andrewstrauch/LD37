@@ -52,16 +52,15 @@ func _ready():
 	get_node("AlexJones").hide()
 	
 	if (actualName == "Advisor1"):
-		get_node("WolfBlitzer").show()
-		
-	if (actualName == "Advisor2"):
-		get_node("JakeTapper").show()
-	if (actualName == "Advisor3"):
-		get_node("MegynKelly").show()
-	if (actualName == "Advisor4"):
 		get_node("KeithOlbermann").show()
-	if (actualName == "Advisor5"):
+	if (actualName == "Advisor2"):
 		get_node("RachelMaddow").show()
+	if (actualName == "Advisor3"):
+		get_node("WolfBlitzer").show()
+	if (actualName == "Advisor4"):
+		get_node("JakeTapper").show()
+	if (actualName == "Advisor5"):
+		get_node("MegynKelly").show()
 	if (actualName == "Advisor6"):
 		get_node("AlexJones").show()
 	
@@ -139,19 +138,19 @@ func spawn_bubbles(myName):
 	
 	if (myName == "Advisor1"):
 		offset = advisorOneOffset
-		alignment = t.ADVISOR_ALIGNMENT.MODERATE
+		alignment = t.ADVISOR_ALIGNMENT.SUPER_LEFT
 	if (myName == "Advisor2"):
 		offset = advisorTwoOffset
-		alignment = t.ADVISOR_ALIGNMENT.MODERATE
+		alignment = t.ADVISOR_ALIGNMENT.LEFT
 	if (myName == "Advisor3"):
 		offset = advisorThreeOffset
-		alignment = t.ADVISOR_ALIGNMENT.RIGHT
+		alignment = t.ADVISOR_ALIGNMENT.MODERATE
 	if (myName == "Advisor4"):
 		offset = advisorFourOffset
-		alignment = t.ADVISOR_ALIGNMENT.SUPER_LEFT
+		alignment = t.ADVISOR_ALIGNMENT.MODERATE
 	if (myName == "Advisor5"):
 		offset = advisorFiveOffset
-		alignment = t.ADVISOR_ALIGNMENT.LEFT
+		alignment = t.ADVISOR_ALIGNMENT.RIGHT
 	if (myName == "Advisor6"):
 		offset = advisorSixOffset
 		alignment = t.ADVISOR_ALIGNMENT.SUPER_RIGHT
