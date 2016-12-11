@@ -1,6 +1,7 @@
 extends Node
 
 var _gamestate
+var c
 
 var _burndown_timer
 var _burndown_progress_bar
@@ -9,34 +10,32 @@ var _headline
 
 var hasBeenOpened = false
 
-var mouseOn
-
-var c
-
 func get_burndown_timer_time_left():
 	return _burndown_timer.get_time_left()
 
 func _on_burndown_timer_timeout():
+	_delete_email()
+
+func _delete_email():
 	queue_free()
 
 func _ready():
 	_gamestate = get_node("/root/GameState")
-	
 	c = get_node("/root/Controller")
-	set_process_input(true)
-	_burndown_timer = get_node("EmailSprite").get_node("BurndownTimer")
+	
+	_burndown_timer = get_node("EmailSprite/BurndownTimer")
 	_burndown_timer.connect("timeout", self, "_on_burndown_timer_timeout")
-	#get_node("Detect").connect("mouse_enter", self, "on_detect_mouse_enter")
-	#get_node("Detect").connect("mouse_exit", self, "on_detect_mouse_exit")
 
-	_burndown_progress_bar = get_node("EmailSprite").get_node("BurndownProgressBar")
+	self.connect("input_event", self, "_input_event")
+
+	_burndown_progress_bar = get_node("EmailSprite/BurndownProgressBar")
 	
 	_headlines = get_node("/root/Headlines")
 	_headline = _headlines.get_random_headline()
 	var _headline_text_to_display = _headline.text
 	if _headline_text_to_display.length() > 60:
 		_headline_text_to_display = _headline_text_to_display.substr(0, 60) + "..."
-	get_node("EmailSprite").get_node("HeadlineText").set_bbcode(_headline_text_to_display)
+	get_node("EmailSprite/HeadlineText").set_bbcode(_headline_text_to_display)
 
 	set_fixed_process(true)
 	pass
@@ -48,38 +47,17 @@ func _fixed_process(delta):
 
 	_burndown_progress_bar.set_value(_burndown_timer.get_time_left() / _burndown_timer.get_wait_time())
 
-#func _input(event):
-#	if (event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && not hasBeenOpened):
-
-#if (event.type == InputEvent.MOUSE_BUTTON):
-    #if (event.button_index == BUTTON_LEFT and event.pressed):
-		
-func _input(event):
+func _input_event(event):
 	if (event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && not hasBeenOpened):
 		if (c.readingAnEmail == false):
-			print(_headline)
 			c.readingAnEmail = true
 			hasBeenOpened = true
 			var opened = load("res://OpenedEmail.tscn")
 			var oi = opened.instance()
-			#oi.get_node("Panel/HeadlineLabel").add_text("Test!")
-			#get_node("EmailSprite").set_modulate("f58f8f")
 			oi.set_headline(_headline)
-			#oi.set_name("Bubble"+actualName)
-			#print(bi.get_name())
-			#oi.hide()
-			#add_child(oi)
 			get_tree().get_root().add_child(oi)
 			oi.pass_timer_time(get_burndown_timer_time_left())
 			oi.set_pos(Vector2(250,340))
 			
-			
 			#Kill email header on spawn
-			get_node("EmailSprite/BurndownTimer").stop()
-			queue_free()
-
-#func on_detect_mouse_enter():
-#	mouseOn = true
-#
-#func on_detect_mouse_exit():
-#	mouseOn = false
+			_delete_email()
