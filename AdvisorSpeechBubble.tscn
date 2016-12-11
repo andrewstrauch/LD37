@@ -1,0 +1,33 @@
+[gd_scene format=1]
+
+[node name="AdvisorSpeechBubble" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 140.0
+margin/bottom = 140.0
+
+[node name="Label" type="Label" parent="Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 140.0
+margin/bottom = 134.0
+text = "\"This is an absolutely ridiculous headline that passes itself off as \'moderate.\' Get this shit out of here!\""
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+
