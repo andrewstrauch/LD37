@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Email.gd" type="Script" id=1]
 [ext_resource path="res://email.png" type="Texture" id=2]
@@ -22,6 +22,11 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.1654, 10 )
 
 [node name="Email" type="Container"]
 
@@ -84,5 +89,24 @@ range/value = 1.0
 range/exp_edit = false
 range/rounded = false
 percent/visible = false
+
+[node name="Detect" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 51.1539, 0, 0, 3.96154, 515.677, 39.116 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+
+transform/pos = Vector2( 515.677, 39.116 )
+transform/scale = Vector2( 51.1539, 3.96154 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
 
 

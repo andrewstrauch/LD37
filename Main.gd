@@ -5,6 +5,10 @@ var headlineBurndownTime = 15
 
 func _ready():
 	get_node("ReceiveEmailTimer").connect("timeout", self, "_on_receive_email_timer_timeout")
+	#print(get_tree().get_root().get_children())
+	
+	#for each in get_tree().get_root().get_children():
+		#print (each.get_name())
 	
 	#Shuffle up stories into array
 	#Pick first story, pull it out, push it to laptop scene
