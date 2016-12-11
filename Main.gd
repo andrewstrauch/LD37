@@ -4,6 +4,8 @@ var headlineArray = []
 var headlineBurndownTime = 15
 
 func _ready():
+	get_node("ReceiveEmailTimer").connect("timeout", self, "_on_receive_email_timer_timeout")
+	
 	#Shuffle up stories into array
 	#Pick first story, pull it out, push it to laptop scene
 	#Reset timer as one-shot, set wait_time to default above
@@ -36,12 +38,13 @@ func _ready():
 		
 	#get_node("Advisors").get_node("Advisor1").show()
 	
-	var email = load("res://Email.tscn")
-	var ei = email.instance()
-	get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").add_child(ei)
-	add_child(ei)
-	
 	set_fixed_process(true)
+
+func _on_receive_email_timer_timeout():
+	_add_email()
+
+func _add_email():
+	get_node("Laptop").get_node("EmailClient").get_node("EmailScrollContainer").get_node("VBoxContainer").add_child(load("res://Email.tscn").instance())
 
 func _fixed_process(delta):
 	if(Input.is_key_pressed(KEY_ESCAPE)):

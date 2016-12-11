@@ -47,4 +47,11 @@ transform/pos = Vector2( 746, 445 )
 
 [node name="Advisors" type="Node" parent="."]
 
+[node name="ReceiveEmailTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
 
