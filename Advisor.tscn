@@ -14,13 +14,14 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="Detect" type="Area2D" parent="."]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 0.5, 0, 0, 0.5, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -29,6 +30,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
 
+transform/scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

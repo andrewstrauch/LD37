@@ -27,16 +27,16 @@ func _fixed_process(delta):
 			stopTalking()
 		
 func startTalking():
-	print("Wolf On Hotkey!")
+	print("Wolf On Hotkey!"+str(get_name()))
 	
 func stopTalking():
-	print("Wolf Off Hotkey!")
+	print("Wolf Off Hotkey!"+str(get_name()))
 
 func on_detect_body_enter():
-	print("Wolf On Hover!")
+	print("Wolf On Hover!"+str(get_name()))
 
 func on_detect_body_exit():
-	print("Wolf Off Hover!")
+	print("Wolf Off Hover!"+str(get_name()))
 	
 func set_hotkey(myHotkey):
 	hotkey = myHotkey
