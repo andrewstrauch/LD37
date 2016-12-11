@@ -10,12 +10,14 @@
 [node name="Main" type="Node2D"]
 
 script/script = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
 
 [node name="Background" type="Sprite" parent="."]
 
 transform/pos = Vector2( 426, 299.645 )
 transform/scale = Vector2( 1.95161, 1.95161 )
 texture = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
 
 [node name="Laptop" parent="." instance=ExtResource( 3 )]
 
