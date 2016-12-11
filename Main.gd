@@ -59,6 +59,10 @@ func _set_receive_email_timer_wait_time():
 	receive_email_timer.set_wait_time(floor(randf() * (_gamestate.RECEIVE_EMAIL_TIMER_MAX_INTERVAL - _gamestate.RECEIVE_EMAIL_TIMER_MIN_INTERVAL + 1) + _gamestate.RECEIVE_EMAIL_TIMER_MIN_INTERVAL))
 
 func _on_receive_email_timer_timeout():
+	if _gamestate.is_game_over:
+		receive_email_timer.stop()
+		return
+
 	_add_email()
 	_set_receive_email_timer_wait_time()
 
