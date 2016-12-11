@@ -23,6 +23,7 @@ func _ready():
 		var ai = advisor.instance()
 		#get_tree().get_root().add_child(ai)
 		ai.set_actual_name("Advisor" + str(advisorNum))
+		ai.set_hotkey(advisorNum)
 		get_node("Advisors").add_child(ai)
 		#get_tree().get_root().get_node("world1-1").add_child(bi)
 		ai.set_pos(each.get_pos())

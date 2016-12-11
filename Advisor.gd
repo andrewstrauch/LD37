@@ -1,13 +1,14 @@
 extends Node2D
 
 var hotkey
+var hotKeyFormatted
 var hotkeyPressed = bool(false)
 var talking = bool(false)
 var canStopTalking = bool(false)
 var actualName
 var bubbleNumber = 1
 
-const leftMargin = -90
+const leftMargin = -100
 const rightMargin = -40
 const topMargin = 10
 const bottomMargin = -10
@@ -28,26 +29,53 @@ func _ready():
 	get_node("Detect").connect("mouse_enter", self, "on_detect_body_enter")
 	get_node("Detect").connect("mouse_exit", self, "on_detect_body_exit")
 	
-	_spawn_bubbles(actualName)
+	spawn_bubbles(actualName)
 	#print(actualName)
 	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 	#Refactor this to be outside class
-	hotkeyPressed = Input.is_key_pressed(KEY_1)
+	hotkeyPressed = Input.is_key_pressed(hotKeyFormatted)
 	if (hotkeyPressed):
 		if (not talking && not canStopTalking):
 			talking = true
 			canStopTalking = true
-			startTalking()
+			startTalking(return_bubble())
 	elif(not hotkeyPressed):
 		if (canStopTalking):
 			talking = false
 			canStopTalking = false
-			stopTalking()
+			stopTalking(return_bubble())
 
-func _spawn_bubbles(myName):
+func return_bubble():
+	if(hotKeyFormatted == KEY_1):
+		return "BubbleAdvisor1"
+	if(hotKeyFormatted == KEY_2):
+		return "BubbleAdvisor2"
+	if(hotKeyFormatted == KEY_3):
+		return "BubbleAdvisor3"
+	if(hotKeyFormatted == KEY_4):
+		return "BubbleAdvisor4"
+	if(hotKeyFormatted == KEY_5):
+		return "BubbleAdvisor5"
+	if(hotKeyFormatted == KEY_6):
+		return "BubbleAdvisor6"
+
+func spawn_bubbles(myName):
+	if (hotkey == 1):
+		hotKeyFormatted = KEY_1
+	if (hotkey == 2):
+		hotKeyFormatted = KEY_2
+	if (hotkey == 3):
+		hotKeyFormatted = KEY_3
+	if (hotkey == 4):
+		hotKeyFormatted = KEY_4
+	if (hotkey == 5):
+		hotKeyFormatted = KEY_5
+	if (hotkey == 6):
+		hotKeyFormatted = KEY_6
+	
 	var bubbleName
 	var offset = Vector2()
 	
@@ -67,7 +95,7 @@ func _spawn_bubbles(myName):
 	var bubble = load("res://AdvisorSpeechBubble.tscn")
 	var bi = bubble.instance()
 	bi.set_name("Bubble"+actualName)
-	print(bi.get_name())
+	#print(bi.get_name())
 	bi.hide()
 	add_child(bi)
 	bi.set_pos(get_pos() + offset)
@@ -78,17 +106,20 @@ func _spawn_bubbles(myName):
 	#get_tree().get_root().add_child(bi)
 	#bi.set_pos(get_pos() + offset)
 
-func startTalking():
-	print("Wolf On Hotkey!"+str(get_name()))
+func startTalking(bubble):
+	get_node(bubble).show()
 	
-func stopTalking():
-	print("Wolf Off Hotkey!"+str(get_name()))
+func stopTalking(bubble):
+	get_node(bubble).hide()
 
 func on_detect_body_enter():
-	print("Wolf On Hover!"+str(get_name()))
+	var bubble = return_bubble()
+	get_node(bubble).show()
 
 func on_detect_body_exit():
-	print("Wolf Off Hover!"+str(get_name()))
+	var bubble = return_bubble()
+	get_node(bubble).hide()
+	print(bubble)
 	
 func set_hotkey(myHotkey):
 	hotkey = myHotkey
