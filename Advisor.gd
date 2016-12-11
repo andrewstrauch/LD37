@@ -7,6 +7,7 @@ var talking = bool(false)
 var canStopTalking = bool(false)
 var actualName
 var bubbleNumber = 1
+var readyToTalk = true
 
 const leftMargin = -100
 const rightMargin = -40
@@ -23,9 +24,12 @@ var advisorFourOffset = Vector2(centerOffset,0)
 var advisorFiveOffset = Vector2(leftMargin,0)
 var advisorSixOffset = Vector2(leftMargin,0)
 
+var c
+
 #Talking points
 
 func _ready():
+	c = get_node("/root/Controller")
 	get_node("Detect").connect("mouse_enter", self, "on_detect_body_enter")
 	get_node("Detect").connect("mouse_exit", self, "on_detect_body_exit")
 	
@@ -35,6 +39,21 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	#Listen for turning on
+	#if (actualName == "Advisor1"):
+	#	show()
+	
+#	if (c.advisorList.has(actualName)):
+#		print(actualName)
+	
+	if (c.emailsOpen && readyToTalk):
+		readyToTalk = false
+		show()
+	
+	if (not c.emailsOpen && not readyToTalk):
+		readyToTalk = true
+		hide()
+	
 	#Refactor this to be outside class
 	hotkeyPressed = Input.is_key_pressed(hotKeyFormatted)
 	if (hotkeyPressed):
