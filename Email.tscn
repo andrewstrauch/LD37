@@ -53,8 +53,8 @@ margin/right = 266.0
 margin/bottom = 10.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = true
-bbcode/bbcode = "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ..."
-visible_characters = 41
+bbcode/bbcode = ""
+visible_characters = 63
 
 [node name="BurndownTimer" type="Timer" parent="EmailSprite"]
 
