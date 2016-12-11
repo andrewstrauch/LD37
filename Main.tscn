@@ -3,7 +3,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Newsroom.jpg" type="Texture" id=2]
 [ext_resource path="res://Laptop.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Advisor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://AdvisorAnchor.tscn" type="PackedScene" id=4]
 
 [node name="Root" type="Node2D"]
 
@@ -19,10 +19,32 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 410.3, 489.9 )
 
+[node name="AdvisorAnchors" type="Node" parent="."]
+
+[node name="AdvisorAnchor1" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 41, 457 )
+
+[node name="AdvisorAnchor2" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 56, 253 )
+
+[node name="AdvisorAnchor3" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 278, 201 )
+
+[node name="AdvisorAnchor4" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 504, 203 )
+
+[node name="AdvisorAnchor5" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 734, 233 )
+
+[node name="AdvisorAnchor6" parent="AdvisorAnchors" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 760, 445 )
+
 [node name="Advisors" type="Node" parent="."]
-
-[node name="Advisor" parent="Advisors" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 21, 272 )
 
 
