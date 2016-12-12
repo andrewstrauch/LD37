@@ -30,22 +30,42 @@ func _modify_current_truthiness(truthiness_delta):
 	if is_game_over:
 		return
 	
+	# spreading false (negative truthiness) news impacts your score more severely
+	if (truthiness_delta < 0):
+		truthiness_delta *= 10
+		
 	current_truthiness = min(max(current_truthiness + truthiness_delta, 0), MAX_TRUTHINESS)
 
-func _modify_current_left_appeal(appeal_delta):
+func _decrease_current_left_appeal(appeal_delta):
 	if is_game_over:
 		return
 	
 	current_left_appeal = min(max(current_left_appeal + appeal_delta, 0), MAX_LEFT_APPEAL)
 
-func _modify_current_right_appeal(appeal_delta):
+func _increase_current_left_appeal(appeal_delta):
+	if is_game_over:
+		return
+	
+	var value_to_add = appeal_delta*6 - (EMAIL_BURNDOWN_TIMER_TIME-opened_email_time_left)*4
+	value_to_add = max(value_to_add, 5)
+	current_left_appeal = min(max(current_left_appeal + value_to_add, 0), MAX_LEFT_APPEAL)
+
+func _decrease_current_right_appeal(appeal_delta):
 	if is_game_over:
 		return
 	
 	current_right_appeal = min(max(current_right_appeal + appeal_delta, 0), MAX_RIGHT_APPEAL)
 
+func _increase_current_right_appeal(appeal_delta):
+	if is_game_over:
+		return
+	
+	var value_to_add = appeal_delta*6 - (EMAIL_BURNDOWN_TIMER_TIME-opened_email_time_left)*4
+	value_to_add = max(value_to_add, 5)
+	current_right_appeal = min(max(current_right_appeal + value_to_add, 0), MAX_RIGHT_APPEAL)
+
 func _get_truthiness_delta(truthiness):
-	return truthiness - 3
+	return (truthiness - 3)
 
 func _get_appeal_delta(truthiness):
 	return TalkingPoints.HEADLINE_TRUTHINESS.size() - truthiness + 1
@@ -59,16 +79,16 @@ func publish_headline(headline):
 
 	var appeal_delta = _get_appeal_delta(headline.truthiness)
 	if headline.alignment == TalkingPoints.HEADLINE_ALIGNMENT.LEFT:
-		_modify_current_left_appeal(appeal_delta)
+		_increase_current_left_appeal(appeal_delta)
 	elif headline.alignment == TalkingPoints.HEADLINE_ALIGNMENT.RIGHT:
-		_modify_current_right_appeal(appeal_delta)
+		_increase_current_right_appeal(appeal_delta)
 
 func burndown_appeal():
 	if is_game_over:
 		return
 	
-	_modify_current_left_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)
-	_modify_current_right_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)
+	_decrease_current_left_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)
+	_decrease_current_right_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)
 
 func _ready():
 	is_game_over = false
