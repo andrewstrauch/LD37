@@ -57,6 +57,9 @@ func _ready():
 		
 	#get_node("Advisors").get_node("Advisor1").show()
 	
+	_add_email()
+	_add_email()
+	
 	set_fixed_process(true)
 
 func _set_receive_email_timer_wait_time():

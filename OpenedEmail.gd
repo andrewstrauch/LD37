@@ -22,6 +22,11 @@ func _ready():
 	get_node("Panel/RejectButton").connect("pressed", self, "on_reject_button_pressed")
 	get_node("Panel/BurndownTimer").connect("timeout", self, "on_burndown_timer_timeout")
 	get_node("Panel/HeadlineLabel").set_text(openHeadline.text)
+	
+	set_fixed_process(true)
+	
+func _fixed_process(delta):
+	get_node("Panel/TimerPanel/TimerLabel").set_text(str(int(round(get_node("Panel/BurndownTimer").get_time_left()))))
 
 func set_headline(headline):
 	openHeadline = headline
