@@ -14,8 +14,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="Background" type="Sprite" parent="."]
 
-transform/pos = Vector2( 426, 299.645 )
-transform/scale = Vector2( 1.95161, 1.95161 )
+transform/pos = Vector2( 399.5, 318.94 )
+transform/scale = Vector2( 2.09516, 2.09516 )
 texture = ExtResource( 2 )
 __meta__ = { "_edit_lock_":true }
 
@@ -146,10 +146,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 3.0
-margin/top = 111.0
-margin/right = 63.0
-margin/bottom = 156.0
+margin/left = 10.0
+margin/top = 590.0
+margin/right = 70.0
+margin/bottom = 635.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
