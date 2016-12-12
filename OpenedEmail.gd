@@ -54,6 +54,7 @@ func on_approve_button_pressed():
 	handle_email_close("approve")
 	
 func on_reject_button_pressed():
+	get_tree().get_root().get_node("Main").get_node("SamplePlayer").play("trash")
 	print("Rejected!")
 	handle_email_close("reject")
 	

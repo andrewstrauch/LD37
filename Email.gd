@@ -57,6 +57,7 @@ func _input_event(event):
 		if (c.readingAnEmail == false):
 			c.readingAnEmail = true
 			hasBeenOpened = true
+			get_tree().get_root().get_node("Main").get_node("SamplePlayer").play("paper")
 			var opened = load("res://OpenedEmail.tscn")
 			var oi = opened.instance()
 			oi.set_headline(_headline)

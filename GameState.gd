@@ -53,6 +53,7 @@ func _increase_current_left_appeal(appeal_delta):
 func _decrease_current_right_appeal(appeal_delta):
 	if is_game_over:
 		return
+		
 	
 	current_right_appeal = min(max(current_right_appeal + appeal_delta, 0), MAX_RIGHT_APPEAL)
 
@@ -86,6 +87,11 @@ func publish_headline(headline):
 func burndown_appeal():
 	if is_game_over:
 		return
+	
+
+	#get_tree().get_root().get_node("Main").get_node("SamplePlayer").play("test")
+
+
 	
 	_decrease_current_left_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)
 	_decrease_current_right_appeal(APPEAL_BURNDOWN_TIMER_AMOUNT)

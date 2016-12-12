@@ -31,6 +31,8 @@ func _ready():
 	pause()
 	get_node("Pause").hide()
 	
+
+	
 	#print(get_tree().get_root().get_children())
 	
 	#for each in get_tree().get_root().get_children():
@@ -114,6 +116,8 @@ func _on_receive_email_timer_timeout():
 func _add_email():
 	var email = load("res://Email.tscn")
 	var ei = email.instance()
+	
+	get_node("SamplePlayer").play("notification")
 	#ei.set_name("Bubble"+actualName)
 	#add_child(ei)
 	#ei.set_pos(get_pos() + offset)
