@@ -110,6 +110,7 @@ func _on_receive_email_timer_timeout():
 		receive_email_timer.stop()
 		return
 
+	#Wrap this in config, then start round handling
 	_add_email()
 	_set_receive_email_timer_wait_time()
 

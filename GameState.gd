@@ -19,6 +19,10 @@ const MAX_RIGHT_APPEAL = 100
 const APPEAL_BURNDOWN_TIMER_INTERVAL = 0.1
 const APPEAL_BURNDOWN_TIMER_AMOUNT = -0.02
 
+const EMAILS_PER_ROUND = 20
+
+var number_of_emails_generated
+
 var is_game_over
 var current_truthiness
 var current_left_appeal
