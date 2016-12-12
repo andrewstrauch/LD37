@@ -37,8 +37,8 @@ func _ready():
 func _fixed_process(delta):
 	# update all components using gamestate
 	_truthiness_bar.set_value(_gamestate.current_truthiness)
-	_truthiness_percentage.set_text(str(int((_gamestate.current_truthiness / float(_gamestate.MAX_TRUTHINESS)) * 100)) + "%")
+	_truthiness_percentage.set_text(str(int(round((_gamestate.current_truthiness / float(_gamestate.MAX_TRUTHINESS)) * 100))) + "%")
 	_left_appeal_bar.set_value(_gamestate.current_left_appeal)
-	_left_appeal_percentage.set_text(str(int((_gamestate.current_left_appeal / float(_gamestate.MAX_LEFT_APPEAL)) * 100)) + "%")
+	_left_appeal_percentage.set_text(str(int(round((_gamestate.current_left_appeal / float(_gamestate.MAX_LEFT_APPEAL)) * 100))) + "%")
 	_right_appeal_bar.set_value(_gamestate.current_right_appeal)
-	_right_appeal_percentage.set_text(str(int((_gamestate.current_right_appeal / float(_gamestate.MAX_RIGHT_APPEAL)) * 100)) + "%")
+	_right_appeal_percentage.set_text(str(int(round((_gamestate.current_right_appeal / float(_gamestate.MAX_RIGHT_APPEAL)) * 100))) + "%")
