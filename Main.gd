@@ -8,9 +8,12 @@ var receive_email_timer
 
 var t
 
+var c
 
+var paused = true
 
 func _ready():
+	c = get_node("/root/Controller")
 	_gamestate = get_node("/root/GameState")
 	t = get_node("/root/TalkingPoints")
 
@@ -18,6 +21,15 @@ func _ready():
 	_set_receive_email_timer_wait_time()
 	receive_email_timer.connect("timeout", self, "_on_receive_email_timer_timeout")
 	receive_email_timer.start()
+	get_node("Instructions/Button").set_text("Fuck this, let's play!")
+	get_node("Instructions/Button").connect("pressed", self, "on_play_button_push")
+	get_node("Pause/Button").set_text("Unpause")
+	get_node("Pause/Button").connect("pressed", self, "on_unpause_button_push")
+	get_node("Pause").hide()
+	get_node("MainPauseButton").set_text("Pause")
+	get_node("MainPauseButton").connect("pressed", self, "on_main_pause_button_push")
+	pause()
+	get_node("Pause").hide()
 	
 	#print(get_tree().get_root().get_children())
 	
@@ -62,6 +74,31 @@ func _ready():
 	
 	set_fixed_process(true)
 
+func on_play_button_push():
+	unpause()
+	get_node("Instructions").hide()
+	
+func pause():
+	get_tree().set_pause(true)
+	paused = true
+	get_node("MainPauseButton").hide()
+	get_node("Pause").show()
+	#get_node("Pause").set_z(100)
+	
+func unpause():
+	get_tree().set_pause(false)
+	paused = false
+	get_node("MainPauseButton").show()
+	get_node("Pause").hide()
+	#get_node("Pause").set_z(100)
+	
+func on_unpause_button_push():
+	unpause()
+
+func on_main_pause_button_push():
+	if(not paused):
+		pause()
+
 func _set_receive_email_timer_wait_time():
 	randomize()
 	receive_email_timer.set_wait_time(floor(randf() * (_gamestate.RECEIVE_EMAIL_TIMER_MAX_INTERVAL - _gamestate.RECEIVE_EMAIL_TIMER_MIN_INTERVAL + 1) + _gamestate.RECEIVE_EMAIL_TIMER_MIN_INTERVAL))
@@ -85,3 +122,8 @@ func _add_email():
 func _fixed_process(delta):
 	if(Input.is_key_pressed(KEY_ESCAPE)):
 		get_tree().quit()
+	if (Input.is_key_pressed(KEY_P)):
+		if(paused):
+			unpause()
+		else:
+			pause()

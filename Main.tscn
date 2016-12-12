@@ -23,6 +23,35 @@ __meta__ = { "_edit_lock_":true }
 
 transform/pos = Vector2( 410.3, 489.9 )
 
+[node name="Pause" type="Panel" parent="."]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 25.0
+margin/top = 28.0
+margin/right = 775.0
+margin/bottom = 578.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Button" type="Button" parent="Pause"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 305.0
+margin/top = 86.0
+margin/right = 447.0
+margin/bottom = 132.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
+
 [node name="AdvisorAnchors" type="Node" parent="."]
 
 [node name="AdvisorAnchor1" parent="AdvisorAnchors" instance=ExtResource( 4 )]
@@ -64,5 +93,67 @@ margin/top = 90.0
 margin/bottom = 110.0
 
 [node name="Scoreboard" parent="." instance=ExtResource( 6 )]
+
+[node name="Instructions" type="Panel" parent="."]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 101.0
+margin/top = 171.0
+margin/right = 701.0
+margin/bottom = 621.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Label" type="Label" parent="Instructions"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 25.0
+margin/right = 589.0
+margin/bottom = 448.0
+text = "Welcome to the Newsroom!\n\nAs our new executive editor, you play a pivtol role in curating the information we provide to our valuable readers.\n\nIn this day and age of competitive media and Twitter battles with instant information, we need your judgement in order to get the stories into our readers\' hands as fast as possible!\n\nWhether or not you decide to fact-check these stories, well, we\'ll leave that up to you.\n\nWe\'ve spared no expense and hired the best talking heads from a wide variety of media sources to aid you on your first day.\n\nWe\'ve spent billions of dollars and need this venture to work out so make sure you get lots of social media engagements, and uh, oh, right, the news. Deliver that if you have to.\n\nGood luck!"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="Button" type="Button" parent="Instructions"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 233.0
+margin/top = 372.0
+margin/right = 353.0
+margin/bottom = 412.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="MainPauseButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 3.0
+margin/top = 111.0
+margin/right = 63.0
+margin/bottom = 156.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+__meta__ = { "_edit_lock_":true }
 
 
