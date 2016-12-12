@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://OpenedEmail.gd" type="Script" id=1]
 [ext_resource path="res://social-media-scores.png" type="Texture" id=2]
+[ext_resource path="res://timer.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -9,7 +10,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
+bg_color = Color( 0.368627, 0.368627, 0.368627, 1 )
 light_color = Color( 0.8, 0.8, 0.8, 1 )
 dark_color = Color( 0.8, 0.8, 0.8, 1 )
 border_size = 0
@@ -56,7 +57,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 10.0
 margin/top = 210.0
-margin/right = 230.0
+margin/right = 190.0
 margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -70,7 +71,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 240.0
+margin/left = 260.0
 margin/top = 210.0
 margin/right = 340.0
 margin/bottom = 240.0
@@ -89,21 +90,21 @@ autostart = false
 
 [node name="SocialMediaShares" type="Sprite" parent="Panel"]
 
-transform/pos = Vector2( 217.552, 37.3204 )
+transform/pos = Vector2( 174.62, 40 )
 transform/scale = Vector2( 0.759879, 0.75 )
 texture = ExtResource( 2 )
 
 [node name="TwitterShares" type="Label" parent="Panel/SocialMediaShares"]
 
-rect/scale = Vector2( 2, 2 )
+rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -164.0
 margin/top = -40.0
-margin/right = -124.0
-margin/bottom = -20.0
+margin/right = -111.0
+margin/bottom = -13.0
 text = "0"
 align = 1
 valign = 1
@@ -114,15 +115,15 @@ max_lines_visible = -1
 
 [node name="FacebookShares" type="Label" parent="Panel/SocialMediaShares"]
 
-rect/scale = Vector2( 2, 2 )
+rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -39.0
+margin/left = -38.0
 margin/top = -40.0
-margin/right = 1.0
-margin/bottom = -20.0
+margin/right = 13.0
+margin/bottom = -13.0
 text = "0"
 align = 1
 valign = 1
@@ -133,15 +134,15 @@ max_lines_visible = -1
 
 [node name="GoogleShares" type="Label" parent="Panel/SocialMediaShares"]
 
-rect/scale = Vector2( 2, 2 )
+rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 85.0
+margin/left = 86.0
 margin/top = -40.0
-margin/right = 125.0
-margin/bottom = -20.0
+margin/right = 139.0
+margin/bottom = -13.0
 text = "0"
 align = 1
 valign = 1
@@ -156,11 +157,17 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/left = 200.0
+margin/top = 210.0
+margin/right = 250.0
+margin/bottom = 240.0
 custom_styles/panel = SubResource( 1 )
+
+[node name="TimerIcon" type="Sprite" parent="Panel/TimerPanel"]
+
+transform/pos = Vector2( 35, 15 )
+transform/scale = Vector2( 0.208333, 0.208333 )
+texture = ExtResource( 3 )
 
 [node name="TimerLabel" type="Label" parent="Panel/TimerPanel"]
 
@@ -168,10 +175,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 13.0
-margin/top = 12.0
-margin/right = 53.0
-margin/bottom = 52.0
+margin/left = 5.0
+margin/top = 5.0
+margin/right = 25.0
+margin/bottom = 25.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
