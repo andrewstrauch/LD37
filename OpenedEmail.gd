@@ -10,6 +10,10 @@ var _twitter_shares
 var _facebook_shares
 var _google_shares
 
+var _max_twitter_shares
+var _max_facebook_shares
+var _max_google_shares
+
 func _ready():
 	c = get_node("/root/Controller")
 	g = get_node("/root/GameState")
@@ -24,15 +28,22 @@ func _ready():
 	get_node("Panel/HeadlineLabel").set_text(openHeadline.text)
 	
 	set_fixed_process(true)
-	
+
 func _fixed_process(delta):
 	var time = int(round(get_node("Panel/BurndownTimer").get_time_left()))
-	
+
 	get_node("Panel/TimerPanel/TimerLabel").set_text(str(time))
 	g.opened_email_time_left = time
 
+	_twitter_shares.set_text(str(int(_max_twitter_shares * ((g.EMAIL_BURNDOWN_TIMER_TIME - get_node("Panel/BurndownTimer").get_time_left()) / float(g.EMAIL_BURNDOWN_TIMER_TIME)))) + "." + str(randi() % 10) + "k")
+	_facebook_shares.set_text(str(int(_max_facebook_shares * ((g.EMAIL_BURNDOWN_TIMER_TIME - get_node("Panel/BurndownTimer").get_time_left()) / float(g.EMAIL_BURNDOWN_TIMER_TIME)))) + "." + str(randi() % 10) + "k")
+	_google_shares.set_text(str(int(_max_google_shares * ((g.EMAIL_BURNDOWN_TIMER_TIME - get_node("Panel/BurndownTimer").get_time_left()) / float(g.EMAIL_BURNDOWN_TIMER_TIME)))) + "." + str(randi() % 10) + "k")
+
 func set_headline(headline):
 	openHeadline = headline
+	_max_twitter_shares = randi() % 1000
+	_max_facebook_shares = randi() % 1000
+	_max_google_shares = randi() % 1000
 
 func pass_timer_time(time):
 	get_node("Panel/BurndownTimer").set_wait_time(time)
