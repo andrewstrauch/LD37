@@ -31,7 +31,7 @@ func _ready():
 	self.connect("input_event", self, "_input_event")
 
 	_burndown_progress_bar = get_node("EmailSprite/BurndownProgressBar")
-	
+
 	_headlines = get_node("/root/Headlines")
 	_headline = _headlines.get_random_headline()
 	var _headline_text_to_display = _headline.text
