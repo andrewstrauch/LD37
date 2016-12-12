@@ -35,9 +35,9 @@ func _ready():
 	_headlines = get_node("/root/Headlines")
 	_headline = _headlines.get_random_headline()
 	var _headline_text_to_display = _headline.text
-	if _headline_text_to_display.length() > 60:
-		_headline_text_to_display = _headline_text_to_display.substr(0, 60) + "..."
-	get_node("EmailSprite/HeadlineText").set_bbcode(_headline_text_to_display)
+	if _headline_text_to_display.length() > 55:
+		_headline_text_to_display = _headline_text_to_display.substr(0, 55) + "..."
+	get_node("EmailSprite/HeadlineText").set_text(_headline_text_to_display)
 
 	set_fixed_process(true)
 	pass
