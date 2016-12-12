@@ -26,7 +26,10 @@ func _ready():
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
-	get_node("Panel/TimerPanel/TimerLabel").set_text(str(int(round(get_node("Panel/BurndownTimer").get_time_left()))))
+	var time = int(round(get_node("Panel/BurndownTimer").get_time_left()))
+	
+	get_node("Panel/TimerPanel/TimerLabel").set_text(str(time))
+	g.opened_email_time_left = time
 
 func set_headline(headline):
 	openHeadline = headline

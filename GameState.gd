@@ -24,6 +24,8 @@ var current_truthiness
 var current_left_appeal
 var current_right_appeal
 
+var opened_email_time_left
+
 func _modify_current_truthiness(truthiness_delta):
 	if is_game_over:
 		return
