@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Newsroom.jpg" type="Texture" id=2]
@@ -8,14 +8,16 @@
 [ext_resource path="res://sounds/351550__richerlandtv__pingding.smp" type="Sample" id=6]
 [ext_resource path="res://sounds/164678__adam-n__paper-1.smp" type="Sample" id=7]
 [ext_resource path="res://sounds/212551_taira-komori_dump.smp" type="Sample" id=8]
-[ext_resource path="res://Scoreboard.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sounds/music/Infoscape.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/typewriter.smp" type="Sample" id=9]
+[ext_resource path="res://Scoreboard.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sounds/music/Farty-Crooks_Looping.ogg" type="AudioStream" id=11]
 
 [sub_resource type="SampleLibrary" id=1]
 
 samples/notification = { "db":-13.0, "pitch":1.0, "sample":ExtResource( 6 ) }
 samples/paper = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/trash = { "db":-15.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/trash = { "db":-10.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/typewriter = { "db":9.0, "pitch":1.5, "sample":ExtResource( 9 ) }
 
 [node name="Main" type="Node2D"]
 
@@ -169,7 +171,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
-config/polyphony = 1
+config/polyphony = 4
 config/samples = SubResource( 1 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
@@ -184,11 +186,11 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="Scoreboard" parent="SamplePlayer" instance=ExtResource( 9 )]
+[node name="Scoreboard" parent="SamplePlayer" instance=ExtResource( 10 )]
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 11 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 10.0

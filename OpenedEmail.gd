@@ -50,6 +50,7 @@ func pass_timer_time(time):
 	get_node("Panel/BurndownTimer").start()
 	
 func on_approve_button_pressed():
+	get_tree().get_root().get_node("Main").get_node("SamplePlayer").play("typewriter")
 	print("Approved!")
 	handle_email_close("approve")
 	
