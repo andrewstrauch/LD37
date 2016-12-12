@@ -118,7 +118,7 @@ func _add_email():
 	var email = load("res://Email.tscn")
 	var ei = email.instance()
 	
-	get_node("SamplePlayer").play("notification")
+	get_node("SamplePlayer").play("notification2")
 	#ei.set_name("Bubble"+actualName)
 	#add_child(ei)
 	#ei.set_pos(get_pos() + offset)
