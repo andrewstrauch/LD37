@@ -108,16 +108,39 @@ func _ready():
 
 	set_fixed_process(true)
 
-func _end_game():
+func _end_game(reason):
 	is_game_over = true
 	
+	var gameOver = load("res://GameOver.tscn")
+	var gi = gameOver.instance()
+	get_tree().get_root().add_child(gi)
+	#gi.get_node("GameOver/Label").set_text(reason)
+	#print(gi.get_name())
+	#get_tree().get_root().get_node(gi.get_name()).get_node("Label").set_text(str(reason))
+	#get_tree().get_root().get_node("GameOver/Label").set_align(1)
+	get_tree().get_root().get_node("GameOver/Label").set_text(str(reason))
+	var x
+	x = get_tree().get_root().get_node("Main")
+	#print(x)
+	x.queue_free()
+	
+	
 	# TODO
-	print("GAME OVER")
+	#print("GAME OVER")
 
 func _fixed_process(delta):
-	if is_game_over:
+	if (is_game_over):
 		return
-
+		
+	var reason
 	# update all components using gamestate
-	if (current_truthiness <= TRUTHINESS_THRESHOLD) or (current_left_appeal <= LEFT_APPEAL_THRESHOLD) or (current_right_appeal <= RIGHT_APPEAL_THRESHOLD):
-		_end_game()
+	if (current_truthiness <= TRUTHINESS_THRESHOLD):
+		reason = "Readers don't trust your credibility anymore! Try to fact-check with your advisors next time."
+		_end_game(reason)
+	elif (current_left_appeal <= LEFT_APPEAL_THRESHOLD):
+		reason = "You've alienated all left-leaning viewers! Try to have a wider appeal next time"
+		_end_game(reason)
+	elif (current_right_appeal <= RIGHT_APPEAL_THRESHOLD):
+		reason = "You've alienated all right-leaning viewers! Try to have a wider appeal next time"
+		_end_game(reason)
+		
