@@ -40,14 +40,6 @@ func _modify_current_truthiness(truthiness_delta):
 		
 	current_truthiness = min(max(current_truthiness + truthiness_delta, 0), MAX_TRUTHINESS)
 
-	if current_truthiness <= 65:
-		print("FUCK")
-		var sample = get_tree().get_root().get_node("Main").get_node("SamplePlayer").get_sample_library().get_sample("test")
-		sample.set_loop_format(sample.LOOP_FORWARD)
-		sample.set_loop_begin(0)
-		sample.set_loop_end(sample.get_length())
-		get_node("SamplePlayer").play("test")
-
 func _decrease_current_left_appeal(appeal_delta):
 	if is_game_over:
 		return
