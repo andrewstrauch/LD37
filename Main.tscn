@@ -40,7 +40,6 @@ transform/pos = Vector2( 410.3, 489.9 )
 [node name="Pause" type="Panel" parent="."]
 
 process/pause_mode = 2
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -132,7 +131,7 @@ margin/left = 10.0
 margin/top = 25.0
 margin/right = 589.0
 margin/bottom = 448.0
-text = "Welcome to the Newsroom!\n\nAs our new executive editor, you play a pivtol role in curating the information we provide to our valuable readers.\n\nIn this day and age of competitive media and Twitter battles with instant information, we need your judgement in order to get the stories into our readers\' hands as fast as possible!\n\nWhether or not you decide to fact-check these stories, well, we\'ll leave that up to you. (Mouse over talking heads, or press keys 1-6 to display their advice).\n\nGood luck!"
+text = "Welcome to the Newsroom!\n\nAs our new executive editor, you play a pivotal role in curating the information we provide to our valuable readers.\n\nIn this day and age of competitive media and Twitter battles with instant information, we need your judgement in order to get the stories into our readers\' hands as fast as possible!\n\nWhether or not you decide to fact-check these stories, well, we\'ll leave that up to you. (Mouse over talking heads, or press keys 1-6 to display their advice).\n\nGood luck!"
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0

@@ -9,11 +9,13 @@ var receive_email_timer
 var t
 
 var c
+var g
 
 var paused = true
 
 func _ready():
 	c = get_node("/root/Controller")
+	g = get_node("/root/GameState")
 	_gamestate = get_node("/root/GameState")
 	t = get_node("/root/TalkingPoints")
 
